@@ -1,0 +1,29 @@
+{
+  "name": "stock-portfolio",
+  "version": "1.0.0",
+  "description": "Stock purchase microservice",
+  "main": "handler.js",
+  "scripts": {
+    "test": "node index.test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/brunovitorprado/stock-portifolio-microservice.git"
+  },
+  "keywords": [
+    "stock",
+    "microservice",
+    "nodejs",
+    "aws",
+    "lambda"
+  ],
+  "author": "bruno prado",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/brunovitorprado/stock-portifolio-microservice/issues"
+  },
+  "homepage": "https://github.com/brunovitorprado/stock-portifolio-microservice#readme",
+  "dependencies": {
+    "tape": "^4.11.0"
+  }
+}
