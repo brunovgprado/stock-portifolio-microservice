@@ -1,3 +1,5 @@
+'use strict';
+
 console.log('Loading function');
 
 const repo = require('./purchase.repository/repository');
