@@ -1,7 +1,8 @@
+const doc = require('dynamodb-doc');
+
 class PurchaseRepository{
     
     constructor(){
-        const doc = require('dynamodb-doc');
         this.dynamo = new doc.DynamoDB();       
     }
 

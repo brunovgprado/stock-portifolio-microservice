@@ -4,7 +4,7 @@
   "description": "Stock purchase microservice",
   "main": "handler.js",
   "scripts": {
-    "test": "node index.test"
+    "test": "node purchase.test/index.test"
   },
   "repository": {
     "type": "git",
