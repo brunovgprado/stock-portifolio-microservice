@@ -5,26 +5,30 @@ class PurchaseValidator{
     }
 
     validate(){
-        validateInvestorId();
-        validateSymbol();
-        validatePrice();
-        validateAmount();
+        this._validateInvestorId();
+        this._validateSymbol();
+        this._validatePrice();
+        this._validateAmount();        
 
         return this.errorList;
     }
-    validateInvestorId(){
-        if(this.InvestorId !== null || this.InvestorId !== '')
+
+    _validateInvestorId(){
+        if(this.InvestorId === null || this.InvestorId === "" || this.Symbol === " ")
             this.errorList.push("Investor ID is mandatory");
-    }  
-    validateSymbol(){
-        if(this.Symbol !== null || this.Symbol !== '')
+    } 
+
+    _validateSymbol(){
+        if(this.Symbol === null || this.Symbol === "" || this.Symbol === " ")
             this.errorList.push("Symbol is mandatory");
     }
-    validatePrice(){
+
+    _validatePrice(){
         if(!this.Price > 0)
             this.errorList.push("Price must be higher than zero");
     }
-    validateAmount(){
+
+    _validateAmount(){
         if(!this.Amount > 0)
             this.errorList.push("Amount must be higher than zero");
     }

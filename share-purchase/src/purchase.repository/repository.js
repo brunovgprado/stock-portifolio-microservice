@@ -14,13 +14,13 @@ class PurchaseRepository{
         this.dynamo.scan(data, done);
     }
     
-    update(data, done){
+/*     update(data, done){
         this.dynamo.updateItem(data, done);
     }
 
     delete(data, done){
         this.dynamo.deleteItem(data, done);
-    }
+    } */
 }
 
 exports.PurchaseRepository = PurchaseRepository;
