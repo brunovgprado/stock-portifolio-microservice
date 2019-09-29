@@ -1,10 +1,12 @@
 
 const repo = require('../purchase.repository/repository');
+const validator = require('../purchase.validators/purchase-validator');
 
 class PurchaseService{
 
     constructor(){
         this.repoPurchase = new repo.PurchaseRepository();
+        this.validPurchase = new validator.PurchaseValidator();
     }
 
     create(data, done){
