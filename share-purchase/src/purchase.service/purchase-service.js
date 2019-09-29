@@ -1,7 +1,7 @@
 
 const repo = require('../purchase.repository/repository');
 
-class PurchaseSevice{
+class PurchaseService{
 
     constructor(){
         this.repoPurchase = new repo.PurchaseRepository();
@@ -24,4 +24,4 @@ class PurchaseSevice{
     }
 }
 
-exports.PurchaseSevice = PurchaseSevice;
+exports.PurchaseService = PurchaseService;

@@ -2,9 +2,9 @@
 
 console.log('Loading function');
 
-const repo = require('./purchase.repository/repository');
+const service = require('./purchase.service/purchase-service');
 
-const repoPurchase = new repo.PurchaseRepository();
+const purchaseService = new service.PurchaseService();
 
 exports.handler = (event, context, callback) => {
 
@@ -18,16 +18,16 @@ exports.handler = (event, context, callback) => {
 
     switch (event.httpMethod) {
         case 'DELETE':
-            repoPurchase.delete(JSON.parse(event.body), done);
+            purchaseService.delete(JSON.parse(event.body), done);
             break;
         case 'GET':
-            repoPurchase.read({ TableName: event.queryStringParameters.TableName }, done);
+            purchaseService.read({ TableName: event.queryStringParameters.TableName }, done);
             break;
         case 'POST':
-            repoPurchase.create(JSON.parse(event.body), done);
+            purchaseService.create(JSON.parse(event.body), done);
             break;
         case 'PUT':
-            repoPurchase.update(JSON.parse(event.body), done);
+            purchaseService.update(JSON.parse(event.body), done);
             break;
         default:
             done(new Error(`Unsupported method "${event.httpMethod}"`));
