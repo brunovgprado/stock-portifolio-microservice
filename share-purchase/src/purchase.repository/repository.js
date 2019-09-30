@@ -1,9 +1,10 @@
-const doc = require('dynamodb-doc');
+'use strict';
+const AWS = require('aws-sdk'); // eslint-disable-line import/no-extraneous-dependencies
 
 class PurchaseRepository{
     
     constructor(){
-        this.dynamo = new doc.DynamoDB();       
+        this.dynamo = new AWS.DynamoDB.DocumentClient();       
     }
 
     create(data, done){

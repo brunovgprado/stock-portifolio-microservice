@@ -1,5 +1,5 @@
 {
-  "name": "stock-portfolio",
+  "name": "stock-purchase",
   "version": "1.0.0",
   "description": "Stock purchase microservice",
   "main": "handler.js",

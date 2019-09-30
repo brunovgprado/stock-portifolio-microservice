@@ -18,8 +18,8 @@ class PurchaseService{
         }
     }
     
-    read(data, done){
-        this.repoPurchase.read(data, done);
+    read(done){
+        this.repoPurchase.read({ TableName: "StockPurchases" }, done);
     }
 
 /*     update(data, done){

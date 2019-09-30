@@ -1,7 +1,7 @@
 const entity = require('../purchase.model/persistency-entity');
 const model = require('../purchase.model/purchase');
 
-const tableName = "StockPurchase";
+const tableName = "StockPurchases";
 
 class EntityToModelAdapter{
     constructor(obj) {
