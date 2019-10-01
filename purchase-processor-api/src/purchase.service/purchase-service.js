@@ -11,25 +11,25 @@ class PurchaseService{
     constructor(){
     }
 
-    create(data, done){
+    registerPurchase(data, done){
         let validator = new valid.PurchaseValidator();
         let errors = validator.validate(data);
 
-        if(errors.length == 0){
+        if(validator.isValid()){
             let entity = this._prepareEntity(data);
             this._postRequest(entity, done, urls.url.REGISTER);
         }else{done({Message:"Here are some validation errors", Errors: errors}, null)}
     }
     
-    read(done){
+    readPortfolio(done){
         this._getRequest(done, urls.url.PORTFOLIO);
     }
 
-    update(data, done){
+    writeOfPurchase(data, done){
         //this.repoPurchase.update(data, done);
     }
     
-    delete(data, done){
+    deletePurchase(data, done){
         //this.repoPurchase.delete(data, done);
     }
     

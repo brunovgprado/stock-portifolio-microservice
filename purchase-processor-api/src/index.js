@@ -30,7 +30,7 @@ app.use(express.json())
         }
     };
 
-    srv.read(done);
+    srv.readPortfolio(done);
   });
   
   //Purchase register endpoint
@@ -45,7 +45,7 @@ app.use(express.json())
             res.end()
         }
     };
-    srv.create(req.body, done)
+    srv.registerPurchase(req.body, done)
   });
 
   app.listen(port, () => {
