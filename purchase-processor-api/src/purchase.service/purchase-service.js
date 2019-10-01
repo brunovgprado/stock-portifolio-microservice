@@ -17,7 +17,8 @@ class PurchaseService{
 
         if(validator.isValid()){
             let entity = this._prepareEntity(data);
-            this._postRequest(entity, done, urls.url.REGISTER);
+            //this._postRequest(entity, done, urls.url.REGISTER);
+            this._postRequest(entity, done, urls.url.TEST_POST_OTHER_API);
         }else{done({Message:"Here are some validation errors", Errors: errors}, null)}
     }
     
@@ -42,12 +43,14 @@ class PurchaseService{
     }
     
     _postRequest(data, done, url){
+        console.log(JSON.stringify(data));
+
         request.post({
             url: url,
             headers: {
               'Content-Type': 'application/octet-stream'
             },
-            encoding: null, //  if you expect binary data
+            encoding: null,
             responseType: 'buffer',
             body: data,
             json: true

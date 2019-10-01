@@ -23,12 +23,17 @@ functions:
       - http:
           path: purchase/test
           method: get
-
   portfolio:
     handler: handler.portfolio
     events:
       - http:
           path: purchase/portfolio
+          method: get
+  purchase:
+    handler: handler.purchase
+    events:
+      - http:
+          path: purchase/register
           method: get
 
 resources:

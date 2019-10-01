@@ -28,3 +28,16 @@ module.exports.portfolio = (event, context, callback) => {
 
   purchaseService.read(done);
 };
+
+module.exports.purchase = (event, context, callback) => {
+
+  const done = (err, res) => callback(null, {
+    statusCode: err ? '400' : '200',
+    body: err ? err.message : JSON.stringify(res),
+    headers: {
+        'Content-Type': 'application/json',
+    },
+  });
+
+  purchaseService.create(event.body, done);
+};
