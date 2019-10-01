@@ -1,39 +1,37 @@
-const uuidv4 = require('uuid/v4');
 const request = require('request');
-const enume = require('../purchase.enum/enumerators');
-const urls = require('../purchase.urls/purchase.urls');
-const models = require('../purchase.model/persistency-entity');
-const valid = require('../purchase.validators/purchase-validator');
+const urls = require('../equity.urls/equity.urls');
+const models = require('../equity.model/persistency-entity');
+const valid = require('../equity.validators/equity-validator');
 
-
-class PurchaseService{
+class EquityService{
 
     constructor(){
     }
 
-    registerPurchase(data, done){
-        let validator = new valid.PurchaseValidator();
+    getEquity(data, done){
+        this. _getRequest(done, urls.url.EQUITY);
+    }
+
+    increaseEquity(data, done){
+        let validator = new valid.EquityValidator();
         let errors = validator.validate(data);
 
         if(validator.isValid()){
             let entity = this._prepareEntity(data);
-            //this._postRequest(entity, done, urls.url.REGISTER);
-            this._postRequest(entity, done, urls.url.TEST_POST_OTHER_API);
+            this._postRequest(entity, done, urls.url.INCREASE);
         }else{done({Message:"Here are some validation errors", Errors: errors}, null)}
     }
-    
-    readPortfolio(done){
-        this._getRequest(done, urls.url.PORTFOLIO);
+
+    decreaseEquity(data, done){
+        let validator = new valid.EquityValidator();
+        let errors = validator.validate(data);
+
+        if(validator.isValid()){
+            let entity = this._prepareEntity(data);
+            this._postRequest(entity, done, urls.url.DECREASE);
+        }else{done({Message:"Here are some validation errors", Errors: errors}, null)}
     }
 
-    writeOfPurchase(data, done){
-        //this.repoPurchase.update(data, done);
-    }
-    
-    deletePurchase(data, done){
-        //this.repoPurchase.delete(data, done);
-    }
-    
     _getRequest(done, url){
         
         request.get(url, function (req, res) {
@@ -43,7 +41,6 @@ class PurchaseService{
     }
     
     _postRequest(data, done, url){
-        console.log(JSON.stringify(data));
 
         request.post({
             url: url,
@@ -61,18 +58,15 @@ class PurchaseService{
                   done(err, null);
               }
           }
-          );
-        
+        );        
     }
 
     _prepareEntity(data){
         let entity = new models.PersistencyEntity();
-        entity.TableName = "StockPurchases";
+        entity.TableName = "InvestorEquity";
         entity.Item = data;
-        entity.Item.Status = enume.status.BUYED;
-        entity.Item.PurchaseId = uuidv4();
 
         return entity;    
     }
 }
-exports.PurchaseService = PurchaseService;
+exports.EquityService = EquityService;

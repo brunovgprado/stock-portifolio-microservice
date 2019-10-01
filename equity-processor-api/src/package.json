@@ -1,15 +1,22 @@
 {
-  "name": "purchase-processor-api",
+  "name": "equit-processor-api",
   "version": "1.0.0",
-  "description": "Microservice to process stock purchase operations",
+  "description": "Microservice that process quity after stock purchase operation",
   "main": "index.js",
   "scripts": {
-    "test": "node ./purchase.test/index.test"
+    "test": "node ./equity.test/index.test"
   },
   "repository": {
     "type": "git",
     "url": "https://github.com/brunovitorprado/stock-portifolio-microservice"
   },
+  "keywords": [
+    "microservice",
+    "equity",
+    "calculator",
+    "equity",
+    "processor"
+  ],
   "author": "Bruno Prado",
   "license": "ISC",
   "dependencies": {

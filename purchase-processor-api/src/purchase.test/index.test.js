@@ -2,7 +2,7 @@ const test = require('tape')
 const valid = require('../purchase.validators/purchase-validator');
 const models = require('../purchase.model/purchase');
 
-test('Test validate has error messages', (t) => {
+test('Test validation has error messages', (t) => {
     let model = new models.StockPurchase();
     let vldt = new valid.PurchaseValidator();
 
