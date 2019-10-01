@@ -1,5 +1,5 @@
 'use strict';
-const AWS = require('aws-sdk'); // eslint-disable-line import/no-extraneous-dependencies
+const AWS = require('aws-sdk');
 
 class PurchaseRepository{
     
@@ -15,13 +15,12 @@ class PurchaseRepository{
         this.dynamo.scan(data, done);
     }
     
-/*     update(data, done){
+    update(data, done){
         this.dynamo.updateItem(data, done);
     }
 
     delete(data, done){
         this.dynamo.deleteItem(data, done);
-    } */
+    }
 }
-
 exports.PurchaseRepository = PurchaseRepository;

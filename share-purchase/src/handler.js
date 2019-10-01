@@ -2,13 +2,13 @@
 const service = require('./purchase.service/purchase-service');
 const purchaseService = new service.PurchaseService();
 
-module.exports.hello = async event => {
+module.exports.test = async event => {
   return {
     statusCode: 200,
     body: JSON.stringify(
       {
-        message: 'Go Serverless v1.0! Your function executed successfully!',
-        input: event,
+        message: 'GET API is OK!',
+        input: event.body,
       },
       null,
       2
@@ -27,16 +27,4 @@ module.exports.portfolio = (event, context, callback) => {
   });
 
   purchaseService.read(done);
-
-/*   return {
-    statusCode: 200,
-    body: JSON.stringify(
-      {
-        message: 'Retorna o portfolio',
-        input: event,
-      },
-      null,
-      2
-    ),
-  }; */
 };

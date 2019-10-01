@@ -18,7 +18,7 @@ provider:
 
 functions:
   testapi:
-    handler: handler.hello
+    handler: handler.test
     events:
       - http:
           path: purchase/test
@@ -30,10 +30,6 @@ functions:
       - http:
           path: purchase/portfolio
           method: get
-          #request: 
-          #  parameters: 
-          #    paths: 
-          #      InvestorId: true
 
 resources:
   Resources:
@@ -54,6 +50,3 @@ resources:
         ProvisionedThroughput:
           ReadCapacityUnits: 1
           WriteCapacityUnits: 1
-
-#plugins:
-#  - serverless_swagger
