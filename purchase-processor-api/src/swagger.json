@@ -1,0 +1,96 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "version": "1.0.0",
+    "title": "Stock purchase processor",
+    "description": "Microservice to process stock purchase operations",
+    "license": {
+      "name": "MIT",
+      "url": "https://opensource.org/licenses/MIT"
+    }
+  },
+  "host": "localhost:3000",
+  "basePath": "/",
+  "tags": [
+    {
+      "name": "Users",
+      "description": "API for users in the system"
+    }
+  ],
+  "schemes": [
+    "http"
+  ],
+  "consumes": [
+    "application/x-www-form-urlencoded"
+  ],
+  "produces": [
+    "application/json"
+  ],
+  "paths": {
+    "/portfolio": {
+      "get": {
+        "tags": [
+          "Portfolio"
+        ],
+        "summary": "Get portfolio",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Portfolio"
+            }
+          }
+        }
+      }
+    },
+    "/purchase/register": {
+      "post": {
+        "tags": [
+          "Puchase"
+        ],
+        "summary": "Register a stock purchase transaction",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Purchase"
+            }
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "Purchase": {
+      "required": [
+        "InvestorId",
+        "Symbol",
+        "Price",
+        "Amount"
+      ],
+      "properties": {
+        "InvestorId": {
+          "type": "string",
+          "uniqueItems": true
+        },
+        "PurchaseId": {
+          "type": "string",
+          "uniqueItems": true
+        },
+        "Symbol": {
+          "type": "string"
+        },
+        "Price": {
+          "type": "double"
+        },
+        "Amount": {
+          "type": "int"
+        }
+      }
+    },
+    "Portfolio": {
+      "type": "array",
+      "$ref": "#/definitions/Purchase"
+    }
+  }
+}
