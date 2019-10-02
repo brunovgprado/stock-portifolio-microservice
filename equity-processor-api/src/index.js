@@ -27,12 +27,14 @@ app.use(express.json());
             res.send({"Message":"An error ocurred"})
         }
     };
-
+    console.log(typeof(done));
     srv.getEquity(done);
   });
 
    //Equity increase endpoint
    app.post('/equity/increase', (req, res) => {
+    console.log("Receiving request=====>");
+    console.log(req.body)
     let srv = new service.EquityService();
     const done = (err, resp) => {
         if(!err){
@@ -48,6 +50,7 @@ app.use(express.json());
 
      //Equity decrease endpoint
      app.post('/equity/decrease', (req, res) => {
+        console.log("Receiving request=====>");
         let srv = new service.EquityService();
         const done = (err, resp) => {
             if(!err){

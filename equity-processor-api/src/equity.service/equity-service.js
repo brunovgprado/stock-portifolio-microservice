@@ -8,8 +8,8 @@ class EquityService{
     constructor(){
     }
 
-    getEquity(data, done){
-        this. _getRequest(done, urls.url.EQUITY);
+    getEquity(done){
+        this._getRequest(done, urls.url.EQUITY);
     }
 
     increaseEquity(data, done){
