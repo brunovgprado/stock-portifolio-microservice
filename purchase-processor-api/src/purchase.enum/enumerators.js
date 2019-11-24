@@ -4,3 +4,4 @@ const status = {
 	WATCHED: 'WATCHED',
 	PROVISIONED: 'PROVISIONED'
 }
+exports.status = status;
