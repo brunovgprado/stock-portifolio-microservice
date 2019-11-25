@@ -4,7 +4,8 @@
   "description": "Microservice that process quity after stock purchase operation",
   "main": "index.js",
   "scripts": {
-    "test": "node ./equity.test/index.test"
+    "test": "node ./equity.test/index.test",
+    "start": "node index.js"
   },
   "repository": {
     "type": "git",

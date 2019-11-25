@@ -3,3 +3,4 @@ const url = {
     INCREASE: '<YOUR-API-PATH>',
     DECREASE: '<YOUR-API-PATH>'
 }
+exports.url = url;
