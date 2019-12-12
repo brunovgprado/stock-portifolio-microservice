@@ -17,8 +17,7 @@ class PurchaseService{
         let errors = validator.validate(data);
 
         if(validator.isValid()){
-            let entity = this._prepareEntity(data);
-            this._postRequest(entity, done, urls.url.REGISTER);            
+            this._postRequest(data, done, urls.url.REGISTER);            
 
             this._increaseEquity(data);
         }else{done({Message:"Here are some validation errors", Errors: errors}, null)}
